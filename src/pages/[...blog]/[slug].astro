@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+
+import { SITE, BLOG } from '~/config.js';
+
+import Layout from '~/layouts/PageLayout.astro';
+import SinglePost from '~/components/blog/SinglePost.astro';
+
+import { getCanonical, getPermalink, POST_BASE } from '~/utils/permalinks';
+
+export async function getStaticPaths() {
+	if (BLOG?.disabled || BLOG?.post?.disabled) return [];
+
+	const posts = await getCollection('blog');
+
+	return posts.map((post) => ({
+		params: {
+			slug: post.slug,
+			blog: POST_BASE || undefined,
+		},
+		props: { post },
+	}));
+}
+
+const { post } = Astro.props;
+const url = getCanonical(getPermalink(post.slug, 'post'));
+
+const meta = {
+	title: `${post.data.title} — ${SITE.name}`,
+	ogTitle: post.data.title,
+	ogType: 'article',
+};
+---
+
+<Layout {meta}>
+	<SinglePost post={{ ...post }} url={url} />
+</Layout>

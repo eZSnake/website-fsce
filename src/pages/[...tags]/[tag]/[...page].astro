@@ -1,0 +1,51 @@
+---
+import type { GetStaticPathsOptions } from 'astro';
+import { getCollection } from 'astro:content';
+
+import { SITE, BLOG } from '~/config.js';
+
+import Layout from '~/layouts/BlogLayout.astro';
+import BlogList from '~/components/blog/List.astro';
+import Pagination from '~/components/atoms/Pagination.astro';
+
+import { getCanonical, getPermalink, cleanSlug, TAG_BASE } from '~/utils/permalinks';
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+	if (BLOG?.disabled || BLOG?.tag?.disabled) return [];
+
+	const allPosts = (await getCollection('blog')).sort(
+		(a, b) => b.data.publishDate?.getTime() - a.data.publishDate?.getTime()
+	);
+	const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+
+	return uniqueTags.flatMap((tag) =>
+		paginate(
+			allPosts.filter((post) => post.data.tags.includes(tag)),
+			{
+				params: { tag: cleanSlug(tag), tags: TAG_BASE || undefined },
+				pageSize: BLOG.postsPerPage,
+				props: { tag },
+			}
+		)
+	);
+}
+
+const { page, tag } = Astro.props;
+
+const currentPage = page.currentPage ?? 1;
+
+const meta = {
+	title: `Posts by tag '${tag}' ${currentPage > 1 ? `— Page ${currentPage} ` : ''}— ${SITE.name}`,
+	description: SITE.description,
+	canonical: getCanonical(getPermalink(tag, 'tag')),
+	noindex: true,
+};
+---
+
+<Layout meta={meta}>
+	<Fragment slot="title">
+		Tag: {tag}
+	</Fragment>
+	<BlogList posts={page.data} />
+	<Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+</Layout>

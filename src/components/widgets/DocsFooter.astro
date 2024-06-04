@@ -1,0 +1,30 @@
+---
+import { Icon } from 'astro-icon';
+
+const { license, sourceURL, originURL } = Astro.props;
+
+let license_url = '';
+if (license != null) {
+	license_url = 'https://spdx.org/licenses/' + license + '.html';
+}
+---
+
+<div class="page-footer">
+	{
+		license && (
+			<span>
+				This page's content is available under the <a href={license_url}>{license}</a> license.
+				{originURL && (
+					<span>
+						It is derived from this <a href={originURL}>original source</a>.
+					</span>
+				)}
+			</span>
+		)
+	}
+	<br />
+	<a class="inline-flex items-center" href={sourceURL}>
+		<Icon name="tabler:code" class="w-4 h-4" />
+		<span class="ml-1">Edit this page</span>
+	</a>
+</div>

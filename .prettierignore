@@ -1,0 +1,8 @@
+dist
+node_modules
+.github
+.changeset
+pnpm-lock.yaml
+.woodpecker.yml
+forgejo-docs
+src/content/docs

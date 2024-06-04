@@ -1,0 +1,62 @@
+{
+  "name": "@forgejo/website",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro build && astro preview",
+    "astro": "astro",
+    "prepare": "husky install",
+    "format": "prettier -w --cache --plugin-search-dir=. .",
+    "format-ci": "prettier --check --plugin-search-dir=. .",
+    "lint:eslint": "eslint --cache --ext .js,.ts,.astro .",
+    "lint:tsc": "tsc --noEmit",
+    "lint:astro": "astro check",
+    "lint": "pnpm run lint:tsc && pnpm run lint:eslint && pnpm run lint:astro"
+  },
+  "lint-staged": {
+    "*": "prettier -w --cache --ignore-unknown",
+    "*.astro": [
+      "eslint --cache",
+      "astro check"
+    ],
+    "*.{js,ts}": [
+      "eslint --cache",
+      "tsc --noEmit"
+    ]
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.2.1",
+    "@astrojs/mdx": "^1.1.5",
+    "@astrojs/rss": "^3.0.0",
+    "@astrojs/sitemap": "^3.1.0",
+    "@astrojs/tailwind": "^5.1.0",
+    "@astrolib/seo": "^0.6.0",
+    "@tailwindcss/typography": "^0.5.9",
+    "@types/sanitize-html": "^2.11.0",
+    "@types/slug": "^5.0.7",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "astro": "^3.0.3",
+    "astro-icon": "^0.8.2",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-astro": "^0.29.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "gitea-js": "^1.20.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "marked": "^7.0.5",
+    "prettier": "^3.2.5",
+    "prettier-plugin-astro": "^0.12.3",
+    "rehype-autolink-headings": "^6.1.1",
+    "rehype-slug": "^5.1.0",
+    "sanitize-html": "^2.12.0",
+    "sharp": "^0.32.6",
+    "slug": "^8.2.3",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.3.3"
+  }
+}

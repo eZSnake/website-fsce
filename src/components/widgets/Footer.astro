@@ -1,0 +1,128 @@
+---
+import { Icon } from 'astro-icon';
+import { getBlogPermalink, getHomePermalink, getPermalink, getRelativeLink } from '~/utils/permalinks';
+
+const links = [
+	{
+		title: 'Forgejo',
+		items: [
+			{ title: 'Documentation', href: getRelativeLink('/docs/latest') },
+			{ title: 'Releases', href: getPermalink('releases', 'page') },
+			{ title: 'News', href: getBlogPermalink() },
+			{ title: 'RSS feed', href: '/rss.xml' },
+		],
+	},
+	{
+		title: 'Legal',
+		items: [
+			{ title: 'Imprint', href: getPermalink('imprint', 'page') },
+			{ title: 'Privacy Policy', href: getPermalink('privacy-policy', 'page') },
+			{ title: 'Code of Conduct', href: getPermalink('code-of-conduct', 'page') },
+		],
+	},
+	{
+		title: 'Community',
+		items: [
+			{ title: 'Forge', href: 'https://codeberg.org/forgejo/forgejo' },
+			{ title: 'Fediverse', href: 'https://floss.social/@forgejo' },
+			{ title: 'Matrix space', href: 'https://matrix.to/#/#forgejo:matrix.org' },
+			{ title: 'Identity proofs', href: 'https://keyoxide.org/contact@forgejo.org' },
+		],
+	},
+];
+
+const social = [
+	{ label: 'Keyoxide', icon: 'ic:round-verified', href: 'https://keyoxide.org/contact@forgejo.org' },
+	{ label: 'Matrix space', icon: 'simple-icons:matrix', href: 'https://matrix.to/#/#forgejo:matrix.org' },
+	{ label: 'Fediverse', icon: 'simple-icons:mastodon', href: 'https://floss.social/@forgejo' },
+	{ label: 'RSS', icon: 'tabler:rss', href: '/rss.xml' },
+	{ label: 'Codeberg', icon: 'tabler:git-merge', href: 'https://codeberg.org/forgejo/forgejo' },
+];
+---
+
+<footer class="border-t border-gray-200 dark:border-steel-700 dark:bg-steel-900">
+	<div class="max-w-6xl mx-auto px-4 sm:px-6">
+		<div class="grid grid-cols-12 gap-4 gap-y-8 sm:gap-8 py-8 md:py-12">
+			<div class="col-span-12 lg:col-span-6">
+				<div class="mb-2">
+					<a class="inline-block font-bold text-xl text-zinc-900 dark:text-zinc-100" href={getHomePermalink()}
+						>Forgejo</a
+					>
+				</div>
+				<div class="text-sm text-zinc-600 dark:text-zinc-400">
+					<a
+						class="text-zinc-600 dark:text-zinc-300 hover:text-primary-600 dark:hover:text-primary-400 hover:underline decoration-steel-200 dark:decoration-steel-500 hover:decoration-current transition duration-150 ease-in-out"
+						href={getPermalink('imprint', 'page')}>Imprint</a
+					> ·
+					<a
+						class="text-zinc-600 dark:text-zinc-300 hover:text-primary-600 dark:hover:text-primary-400 hover:underline decoration-steel-200 dark:decoration-steel-500 hover:decoration-current transition duration-150 ease-in-out"
+						href={getPermalink('privacy-policy', 'page')}>Privacy Policy</a
+					>
+				</div>
+			</div>
+			{
+				links.map(({ title, items }) => (
+					<div class="col-span-6 md:col-span-3 lg:col-span-2">
+						<div class="text-zinc-800 dark:text-zinc-100 font-medium mb-2">{title}</div>
+						{items && Array.isArray(items) && items.length > 0 && (
+							<ul class="text-sm">
+								{items.map(({ title, href }) => (
+									<li class="mb-2">
+										<a
+											class="
+												text-zinc-600 hover:text-primary-600 hover:underline
+												dark:text-zinc-300 dark:hover:text-primary-400
+												underline-offset-4 decoration-steel-200 dark:decoration-steel-600 hover:decoration-current
+												transition duration-150 ease-in-out
+											"
+											href={href}
+										>
+											{title}
+										</a>
+									</li>
+								))}
+							</ul>
+						)}
+					</div>
+				))
+			}
+		</div>
+		<div class="md:flex md:items-center md:justify-between py-6 md:py-8">
+			<ul class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0">
+				{
+					social.map(({ label, href, icon }) => (
+						<li>
+							<a
+								class="text-zinc-500 dark:text-zinc-400 hover:bg-steel-100 dark:hover:bg-steel-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+								aria-label={label}
+								href={href}
+								rel="me"
+							>
+								<Icon name={icon} class="w-5 h-5" />
+							</a>
+						</li>
+					))
+				}
+			</ul>
+
+			<div class="text-xs text-zinc-700 mr-4 dark:text-zinc-400">
+				Copyright © {new Date().getFullYear()} Forgejo authors. Content available under
+				<a
+					href="https://creativecommons.org/licenses/by-sa/4.0/"
+					class="hover:text-primary-600 dark:hover:text-primary-400 underline decoration-steel-200 dark:decoration-steel-500 hover:decoration-current transition duration-150 ease-in-out"
+					>CC BY-SA 4.0</a
+				>, unless stated otherwise.<br />
+				<a
+					href="https://www.peppercarrot.com/en/viewer/misc-src__2022-11-27_Forgejo_by-David-Revoy.html"
+					class="hover:text-primary-600 dark:hover:text-primary-400 underline decoration-steel-200 dark:decoration-steel-500 hover:decoration-current transition duration-150 ease-in-out"
+					>Forgejo mascot by David Revoy</a
+				>,
+				<a
+					href="https://creativecommons.org/licenses/by/4.0/"
+					class="hover:text-primary-600 dark:hover:text-primary-400 underline decoration-steel-200 dark:decoration-steel-500 hover:decoration-current transition duration-150 ease-in-out"
+					>CC BY 4.0</a
+				>.
+			</div>
+		</div>
+	</div>
+</footer>

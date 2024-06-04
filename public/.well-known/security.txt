@@ -1,0 +1,15 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Contact: mailto:security@forgejo.org
+Expires: 2025-06-16T23:59:59.000Z
+Encryption: https://keys.openpgp.org/vks/v1/by-fingerprint/1B638BDF10969D627926B8D9F585D0F99E1FB56F
+Preferred-Languages: en
+Canonical: https://forgejo.org/.well-known/security.txt
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYIAB0WIQQbY4vfEJadYnkmuNn1hdD5nh+1bwUCZYwsAgAKCRD1hdD5nh+1
+bwc6AQCJif/SdigSWucMC+UEAWzfQ9IVKdvHcNPWYfpxPf5rbAD/TtvzpXn1hTSm
+3OGw+TyRnrNGds7hWFp6cqNVeew8cwo=
+=PdRo
+-----END PGP SIGNATURE-----

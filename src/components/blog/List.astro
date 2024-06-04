@@ -1,0 +1,21 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+import Item from '~/components/blog/ListItem.astro';
+
+interface Props {
+	posts: CollectionEntry<'blog'>[];
+}
+
+const { posts } = Astro.props;
+---
+
+<ul>
+	{
+		posts.map((post) => (
+			<li class="mb-2.5">
+				<Item post={post} />
+			</li>
+		))
+	}
+</ul>

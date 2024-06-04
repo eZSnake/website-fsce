@@ -1,0 +1,48 @@
+---
+import Layout from '@layouts/PageLayout.astro';
+
+interface Props {
+	frontmatter: {
+		title: string;
+		pubDate: string;
+		tags?: string[];
+	};
+	headings: {
+		depth: number;
+		text: string;
+		slug: string;
+	}[];
+}
+const { frontmatter } = Astro.props;
+
+function formatDate(s: string) {
+	const d = new Date(s);
+	return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
+---
+
+<Layout title={frontmatter.title}>
+	<main class="flex-auto">
+		<article class="centered-content prose lg:prose-xl py-12">
+			<h1 class="!mb-0">{frontmatter.title}</h1>
+			<p class="!mt-0">
+				<a href="../" class="hover-underline">News ›</a>
+				<em>
+					{frontmatter.pubDate && formatDate(frontmatter.pubDate)}
+				</em>
+				{
+					frontmatter.tags &&
+						frontmatter.tags.map((tag) => (
+							<a
+								href={'../tagged/' + tag + '/'}
+								class="hover-underline border inline-block border-slate-500 bg-steel-200 rounded-lg px-2 text-sm ml-2"
+							>
+								{tag}
+							</a>
+						))
+				}
+			</p>
+			<slot />
+		</article>
+	</main>
+</Layout>

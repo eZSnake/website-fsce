@@ -1,0 +1,22 @@
+---
+import { getPermalink } from '~/utils/permalinks';
+
+const { tags, class: className = 'text-sm' } = Astro.props;
+---
+
+{
+	tags && Array.isArray(tags) && (
+		<ul class={className}>
+			{tags.map((tag) => (
+				<li class="inline">
+					<a
+						class="bg-steel-100 hover:bg-steel-200 dark:bg-steel-700 dark:hover:bg-steel-600 inline-block mr-2 mb-2 py-0.5 px-2 last:mr-0"
+						href={getPermalink(tag, 'tag')}
+					>
+						{tag}
+					</a>
+				</li>
+			))}
+		</ul>
+	)
+}

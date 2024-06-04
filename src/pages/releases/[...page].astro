@@ -1,0 +1,65 @@
+---
+import type { GetStaticPathsOptions } from 'astro';
+import type { Release } from 'gitea-js';
+
+import { Icon } from 'astro-icon';
+
+import { SITE } from '~/config.js';
+
+import Layout from '~/layouts/BlogLayout.astro';
+import Item from '~/components/blog/ReleaseItem.astro';
+import Pagination from '~/components/atoms/Pagination.astro';
+
+import { fetchReleases } from '~/utils/releases';
+import { getCanonical, getPermalink, getRelativeLink } from '~/utils/permalinks';
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+	const releases = await fetchReleases();
+
+	return paginate(releases, {
+		pageSize: 10,
+	});
+}
+
+const { page } = Astro.props;
+const currentPage = page.currentPage ?? 1;
+const releases: Release[] = page.data;
+
+const meta = {
+	title: `Releases ${currentPage > 1 ? `— Page ${currentPage} ` : ''}— ${SITE.name}`,
+	description: SITE.description,
+	canonical: getCanonical(getPermalink('releases')),
+	ogType: 'blog',
+	additionalLinkTags: [{ rel: 'alternate', type: 'application/rss+xml', href: './rss.xml' }],
+};
+---
+
+<Layout {meta}>
+	<Fragment slot="title">
+		Forgejo Releases
+		<a
+			class="text-zinc-500 dark:text-zinc-400 hover:bg-primary-100 dark:hover:bg-steel-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+			aria-label="RSS Feed"
+			href="./rss.xml"
+		>
+			<Icon name="tabler:rss" class="w-8 h-8" />
+		</a>
+	</Fragment>
+	<p class="mb-5">
+		New versions are released regularly, consult the <a
+			href={getRelativeLink('/docs/latest/admin/upgrade/') + '#release-life-cycle'}
+			class="underline underline-offset-4 decoration-steel-200 dark:decoration-steel-500 hover:text-primary-600 dark:hover:text-primary-400"
+			>documentation regarding the life cycle and maintenance policy</a
+		>.
+	</p>
+	<ul>
+		{
+			releases.map((release) => (
+				<li class="mb-2.5">
+					<Item release={release} />
+				</li>
+			))
+		}
+	</ul>
+	<Pagination prevUrl={page.url.prev} nextUrl={page.url.next} prevText="Newer releases" nextText="Older releases" />
+</Layout>

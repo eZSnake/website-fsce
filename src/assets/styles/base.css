@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.btn {
+		@apply inline-flex items-center justify-center rounded-md shadow-md border border-slate-300 dark:border-steel-500 hover:border-slate-400 dark:hover:border-steel-400 bg-transparent hover:bg-primary-100 dark:hover:bg-steel-700 font-medium text-center text-base text-zinc-700 dark:text-zinc-200 leading-snug transition py-3 px-6 md:px-8 ease-in duration-200 focus:ring-primary-500 focus:ring-offset-primary-200 dark:focus:ring-offset-steel-900 focus:ring-2 focus:ring-offset-2;
+	}
+	.btn-dark {
+		@apply text-zinc-300 border-slate-500 hover:bg-steel-800 hover:border-slate-800;
+	}
+
+	.btn-ghost {
+		@apply border-none shadow-none text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white;
+	}
+
+	.btn-primary {
+		@apply font-semibold bg-primary-600 text-white border-primary-600 hover:bg-primary-800 hover:border-primary-800 hover:text-white;
+	}
+	.btn-primary.btn-dark {
+		@apply text-white bg-primary-700 border-primary-700 hover:border-primary-900 hover:bg-primary-900;
+	}
+
+	.btn-red {
+		@apply font-semibold bg-red-600 text-white border-red-600 hover:bg-red-800 hover:border-red-800 hover:text-white;
+	}
+	.btn-red.btn-dark {
+		@apply text-white bg-red-700 border-red-700 hover:border-red-900 hover:bg-red-900;
+	}
+
+	.blog-list-item {
+		grid-template-columns: 3em 1fr;
+		grid-template-areas:
+			'line title'
+			'line meta'
+			'line content';
+		@apply gap-0;
+		@apply pr-4;
+	}
+	.blog-list-item-wide {
+		grid-template-columns: minmax(8rem, 2fr) 1fr 9fr;
+		grid-template-areas:
+			'meta line title'
+			'meta line content';
+		@apply gap-0;
+	}
+}
+
+.dropdown:hover .dropdown-menu {
+	display: block;
+}
+
+[astro-icon].icon-light > * {
+	stroke-width: 1.2;
+}
+
+[data-aw-toggle-menu] path {
+	@apply transition;
+}
+[data-aw-toggle-menu].expanded g > path:first-child {
+	@apply -rotate-45 translate-y-[15px] translate-x-[-3px];
+}
+
+[data-aw-toggle-menu].expanded g > path:last-child {
+	@apply rotate-45 translate-y-[-8px] translate-x-[14px];
+}
+
+/* Autolinked headings */
+.icon.icon-link::after {
+	content: '#';
+	margin-inline-start: 0.25em;
+}
+
+div.container > h1,
+div.container > h2,
+div.container > h3,
+div.container > h4,
+div.container > h5,
+div.container > h6 {
+	scroll-margin-block-start: 5rem; /* 5rem is the approximate height of the navigation header */
+}
+
+div.page-footer {
+	font-style: italic;
+	font-size: 0.75em;
+	opacity: 0.75;
+	margin-top: 2.5rem;
+}
+
+div.page-footer > :not(:first-child) {
+	margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+	.btn-hero-features {
+		display: none;
+	}
+}

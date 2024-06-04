@@ -1,0 +1,17 @@
+ErrorDocument 404 /404.html
+
+Redirect /2023-02-23-release-v1 /2023-02-23-release-v1185-0/
+Redirect /2023-02-27-release-v1 /2023-02-27-release-v1190-0-rc0/
+Redirect /2023-03-release-v1 /2023-03-release-v1190-2/
+Redirect /2023-06-10-release-v1 /2023-06-10-release-v1200-0-rc0/
+Redirect /2023-07-release-v1 /2023-07-release-v1201-0/
+
+RedirectMatch ^/docs/?$ /docs/latest/
+
+RedirectMatch ^/docs/(.*)/developer/COC/?$ /docs/$1/developer/coc/
+RedirectMatch ^/docs/(.*)/developer/DCO/?$ /docs/$1/developer/dco/
+RedirectMatch ^/docs/(.*)/developer/DISCUSSIONS/?$ /docs/$1/developer/discussions/
+RedirectMatch ^/docs/(.*)/developer/GOVERNANCE/?$ /docs/$1/developer/governance/
+RedirectMatch ^/docs/(.*)/developer/RELEASE/?$ /docs/$1/developer/release/
+RedirectMatch ^/docs/(.*)/developer/SECRETS/?$ /docs/$1/developer/secrets/
+RedirectMatch ^/docs/(.*)/developer/WORKFLOW/?$ /docs/$1/developer/workflow/

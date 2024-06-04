@@ -1,0 +1,95 @@
+---
+import type { Attachment } from 'gitea-js';
+
+import { getLatestRelease } from '~/utils/releases';
+import Layout from '~/layouts/PageLayout.astro';
+import { getRelativeLink } from '~/utils/permalinks';
+
+const latest = await getLatestRelease();
+const latest_v = latest.tag_name?.replace(/^v/, '');
+const latest_dl = latest.html_url?.replace('/tag/', '/download/');
+
+const asset_bin = latest.assets?.find((asset: Attachment) => asset?.name === `forgejo-${latest_v}-linux-amd64`);
+const asset_sig = latest.assets?.find((asset: Attachment) => asset?.name === `forgejo-${latest_v}-linux-amd64.asc`);
+
+const asset_bin_lnk = [latest_dl, asset_bin?.name].join('/');
+const asset_sig_lnk = [latest_dl, asset_sig?.name].join('/');
+---
+
+<Layout title="Download">
+	<main class="container mx-auto max-w-3xl py-8 sm:py-16 lg:py-20">
+		<div
+			class="container mx-auto px-6 sm:px-6 max-w-3xl prose prose-steel dark:prose-invert prose-headings:font-heading prose-headings:leading-tighter prose-headings:tracking-tighter prose-headings:font-bold prose-a:underline-offset-4 prose-a:decoration-steel-200 dark:prose-a:decoration-steel-500 hover:prose-a:text-primary-600 dark:hover:prose-a:text-primary-400 prose-img:rounded-md prose-img:shadow-lg"
+		>
+			<h1 class="mb-6 pb-6 border-b border-steel-100 dark:border-steel-700">Get Forgejo</h1>
+			<p>
+				You can get the binaries or container images for Forgejo as explained below. For more information on how to
+				setup and configure Forgejo, checkout the <a href={getRelativeLink('/docs/next/admin/installation')}
+					>installation guide</a
+				>.
+			</p>
+			<h2 id="installation-from-binary">Installation from binary</h2>
+			<h3>Download</h3>
+			<p>
+				The following instructions are for installing the latest Forgejo release on a Linux system with the <code
+					>amd64</code
+				> architecture.<br />
+				For other platforms and architectures, be sure to <a href="https://codeberg.org/forgejo/forgejo/releases"
+					>find the appropriate files</a
+				>
+				and modify the instructions below accordingly.
+			</p>
+			<pre>
+wget {asset_bin_lnk}
+chmod +x {asset_bin?.name}
+</pre>
+			<h3>Verify GPG signature</h3>
+			<p>
+				All Forgejo binaries are signed with
+				<a href="https://openpgpkey.forgejo.org/.well-known/openpgpkey/forgejo.org/hu/dj3498u4hyyarh35rkjfnghbjxug6b19"
+					>our GPG key</a
+				>
+				to verify their authenticity and guard against unwanted modification.<br />
+				To validate the signature, download the signature file which ends in .asc for the binary you downloaded and use the
+				GPG command line tool:
+			</p>
+			<pre>
+gpg --keyserver keys.openpgp.org --recv EB114F5E6C0DC2BCDD183550A4B61A2DC5923710
+wget {asset_sig_lnk}
+gpg --verify {asset_sig?.name} {asset_bin?.name}
+</pre>
+
+			<h2 id="container-image">Container image</h2>
+			<p>
+				Forgejo provides <a href="https://codeberg.org/forgejo/-/packages/container/forgejo/versions"
+					>container images</a
+				>
+				for use with Docker or other containerization tools.
+			</p>
+			<p>Install the latest release on Docker as follows:</p>
+			<pre>
+docker pull codeberg.org/forgejo/forgejo:{latest_v}
+</pre>
+
+			<h2>Upgrade from Gitea</h2>
+			<p>Forgejo is a fully-compatible drop-in replacement for Gitea.</p>
+			<p>
+				When migrating from Gitea to the Forgejo release with the same release number (eg from Gitea v1.19 to Forgejo
+				v1.19), all that is necessary is to replace the Gitea binary with the Forgejo binary (or change the container
+				image).
+			</p>
+			<p>
+				When upgrading to Forgejo from an older version of Gitea, please follow
+				<a href="../docs/latest/admin/upgrade/">the upgrade instructions in the Forgejo documentation</a>.
+			</p>
+
+			<h2>Documentation</h2>
+			<p>
+				The Forgejo documentation is now available!<br />
+				It includes an extensive <a href="../docs/latest/user/">user guide</a>
+				and <a href="../docs/latest/admin/">admin guide</a>
+				to help you get started, whether you're hosting Forgejo yourself or using a public instance.
+			</p>
+		</div>
+	</main>
+</Layout>

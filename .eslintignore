@@ -1,0 +1,7 @@
+dist
+node_modules
+.github
+.astro
+src/env.d.ts
+forgejo-docs
+.pnpm-store

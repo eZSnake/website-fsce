@@ -1,0 +1,53 @@
+---
+import type { GetStaticPathsOptions } from 'astro';
+import { getCollection } from 'astro:content';
+
+import { Icon } from 'astro-icon';
+
+import { SITE, BLOG } from '~/config.js';
+
+import Layout from '~/layouts/BlogLayout.astro';
+import BlogList from '~/components/blog/List.astro';
+import Pagination from '~/components/atoms/Pagination.astro';
+
+import { getCanonical, getPermalink, BLOG_BASE } from '~/utils/permalinks';
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+	if (BLOG?.disabled || BLOG?.blog?.disabled) return [];
+
+	const posts = await getCollection('blog');
+	posts.sort((a, b) => b.data.publishDate?.getTime() - a.data.publishDate?.getTime());
+
+	return paginate(posts, {
+		params: { blog: BLOG_BASE || undefined },
+		pageSize: BLOG.postsPerPage,
+	});
+}
+
+const { page } = Astro.props;
+const currentPage = page.currentPage ?? 1;
+
+const meta = {
+	title: `Blog ${currentPage > 1 ? `— Page ${currentPage} ` : ''}— ${SITE.name}`,
+	description: SITE.description,
+	canonical: getCanonical(getPermalink(BLOG?.blog?.pathname)),
+	ogType: 'blog',
+	noindex: currentPage > 1,
+	additionalLinkTags: [{ rel: 'alternate', type: 'application/rss+xml', href: '/rss.xml' }],
+};
+---
+
+<Layout {meta}>
+	<Fragment slot="title">
+		Forgejo news and updates
+		<a
+			class="text-zinc-500 dark:text-zinc-400 hover:bg-primary-100 dark:hover:bg-steel-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+			aria-label="RSS Feed"
+			href="/rss.xml"
+		>
+			<Icon name="tabler:rss" class="w-8 h-8" />
+		</a>
+	</Fragment>
+	<BlogList posts={page.data} />
+	<Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+</Layout>

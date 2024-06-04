@@ -1,0 +1,29 @@
+---
+import { releaseLabel } from '~/utils/releases';
+const { release, class: className = 'text-sm' } = Astro.props;
+
+const label = await releaseLabel(release);
+let classes = '';
+
+switch (label) {
+	case 'Stable':
+		classes = 'bg-green-600 text-white dark:bg-green-800 dark:text-steel-100';
+		break;
+
+	case 'Old Stable':
+		classes = 'bg-orange-600 text-white dark:bg-orange-800 dark:text-steel-100';
+		break;
+
+	case 'Experimental':
+		classes = 'bg-blue-100 dark:bg-blue-700';
+		break;
+}
+---
+
+{
+	release && (
+		<div class={className}>
+			<span class={`${classes} inline-block mr-2 mb-2 py-0.5 px-2 last:mr-0 rounded-md`}>{label}</span>
+		</div>
+	)
+}

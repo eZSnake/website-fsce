@@ -1,0 +1,93 @@
+---
+import { Icon } from 'astro-icon';
+
+const items = [
+	[
+		{
+			title: 'Simple software project management',
+			description:
+				'<strong>Ease of use</strong> is important to get things done efficiently. Forgejo’s user experience is designed for <strong>collaboration</strong> and <strong>productivity</strong>.',
+			icon: 'ic:round-checklist',
+		},
+		{
+			title: 'Self-hosted alternative to GitHub',
+			description:
+				'<strong>Liberate your software</strong> from proprietary shackles. Forgejo offers a familiar environment to GitHub users, allowing smooth transition to a <strong>platform you own</strong>.',
+			icon: 'octicon:git-branch',
+		},
+		{
+			title: 'Easy to install and maintain',
+			description:
+				'Hosting your own software forge does not require expert skills. With Forgejo you can control your server with <strong>minimal effort</strong>.',
+			icon: 'ic:round-rocket-launch',
+		},
+	],
+	[
+		{
+			title: 'Lightweight and performant',
+			description:
+				'With a <strong>rich feature set</strong>, Forgejo still has a <strong>low server profile</strong> and requires <strong>an order of magnitude less resources</strong> than other forges.',
+			icon: 'mdi:feather',
+		},
+		{
+			title: 'Guaranteed 100% Free Software',
+			description:
+				'Forgejo will always be <strong>Free and Open Source Software</strong>. Furthermore we exclusively use Free Software for our own project development.',
+			icon: 'mdi:heart',
+		},
+		{
+			title: 'Beyond coding, we forge ahead',
+			description:
+				'An exciting future awaits. We will innovate the Software Forge and enable <strong>collaborative</strong> software development facilitated by <strong>decentralized</strong> platforms.',
+			icon: 'ic:round-bolt',
+		},
+	],
+];
+---
+
+<section class="scroll-mt-16 dark:bg-steel-700" id="features">
+	<div class="px-4 py-16 mx-auto max-w-6xl lg:px-8 lg:py-20">
+		<div class="mb-10 md:mx-auto sm:text-center md:mb-12 max-w-3xl">
+			<!-- <p class="text-base mb-4 text-primary-600 dark:text-steel-200 font-semibold tracking-wide uppercase">
+				Highlights
+			</p> -->
+			<h2
+				class="text-4xl md:text-5xl leading-tighter tracking-tighter font-heading pb-6 bg-gradient-to-r from-amber-500 to-red-600 bg-clip-text text-transparent font-bold"
+			>
+				Forge great software with Forgejo
+			</h2>
+			<p
+				class="max-w-3xl mx-auto sm:text-center text-xl text-steel-600 dark:text-steel-100 py-3 my-3 border-y border-steel-100 dark:border-steel-600"
+			>
+				Take back control of your software development process, self-host your projects and get everyone involved in
+				delivering quality software on the same page.
+			</p>
+		</div>
+		<div class="grid mx-auto space-y-6 md:grid-cols-2 md:space-y-0 justify-center">
+			{
+				items.map((subitems) => (
+					<div class="space-y-8 sm:px-8">
+						{subitems.map(({ title, description, icon }) => (
+							<div class="flex flex-row max-w-md">
+								<div class="mb-4 mr-5">
+									{icon && <Icon name={icon} class="w-10 h-10 text-primary-600 dark:text-primary-500" />}
+								</div>
+								<div>
+									<h3
+										class="
+										leading-10 text-xl font-bold text-steel-600 dark:text-white
+										underline decoration-1 decoration-steel-100 dark:decoration-steel-600 underline-offset-[0.5rem]
+									"
+									>
+										{title}
+									</h3>
+									<p class="text-steel-600 dark:text-steel-200" set:html={description} />
+								</div>
+							</div>
+						))}
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>
