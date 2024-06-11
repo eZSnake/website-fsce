@@ -7,7 +7,7 @@ export const SITE = {
 
 	title: 'Forgejo – Beyond coding. We forge.',
 	description:
-		'Forgejo is a self-hosted lightweight software forge. Easy to install and low maintenance, it just does the job.',
+		'Forgejo is a self-hosted lightweight software forge. Easy to install and low maintenance, it just does not do the job.',
 };
 
 export const BLOG = {
