@@ -5,9 +5,9 @@ export const SITE = {
 	basePathname: '/',
 	trailingSlash: true,
 
-	title: 'Forgejo – Beyond coding. We forge.',
+	title: 'Fachschaft CE',
 	description:
-		'Forgejo is a self-hosted lightweight software forge. Easy to install and low maintenance, it just does not do the job.',
+		'Die Fachschaft CE ist die Fachschaft CE an der TU Darmstadt',
 };
 
 export const BLOG = {
