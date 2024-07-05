@@ -104,3 +104,24 @@ Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page
 There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
 Any static assets, like images, can be placed in the `public/` directory if they do not require any transformation or in the `assets/` directory if they are imported directly.
+
+### Manual testing
+
+When doing some dependency upgrade, the following should be manually tested:
+
+_Note that ideally both the mobile (narrow) and desktop (wide) versions should be tested_
+
+- [ ] visit the homepage
+- [ ] visit the `rss.xml` feed (⚠️ the menu button points to the `main` version: put the URL manually in case of a pull request with `/@pull_XX` prefix)
+- [ ] switch the theme (light/dark)
+- [ ] visit the FAQ
+- [ ] visit the Releases page (there should be one `Stable` and one `Old Stable` tag)
+- [ ] visit the News page
+- [ ] visit the News page for a given tag (`report` for instance)
+- [ ] visit the first News
+- [ ] visit the docs `/latest`
+- [ ] visit the docs `/next`
+- [ ] visit the docs `/v7.0`
+- [ ] visit the docs > Admin > Reverse proxy and check that all code blocks have syntax coloring
+- [ ] visit the docs > Admin > Configuration Cheat Sheet and check that the internal page navigation (on the right) behaves correctly (independently scrollable / click on item goes to the right place) _only available on desktop for now_
+- [ ] check the menu toggling _only for mobile_

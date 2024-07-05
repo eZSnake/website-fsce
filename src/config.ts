@@ -1,7 +1,7 @@
 export const SITE = {
 	name: 'Forgejo',
 
-	origin: 'https://forgejo.org/',
+	origin: 'https://castn.github.io/website-fsce/',
 	basePathname: '/',
 	trailingSlash: true,
 

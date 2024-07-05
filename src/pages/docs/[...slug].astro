@@ -1,0 +1,38 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+
+import DocsLayout from '@layouts/DocsLayout.astro';
+import { forgejoVersions } from '~/config.js';
+
+export type Props = CollectionEntry<'docs'>;
+
+export async function getStaticPaths() {
+	const latestVersion = `v${forgejoVersions.latest}`;
+
+	const docsPages = await getCollection('docs');
+
+	const latestPaths = Array();
+
+	const paths = docsPages.map((page) => {
+		const version = page.id.split('/')[0];
+		const [, ...slugParts] = page.slug.split('/');
+
+		if (version == latestVersion) {
+			latestPaths.push({
+				params: { slug: ['latest', ...slugParts].join('/') },
+				props: page,
+			});
+		}
+
+		return {
+			params: { slug: [version, ...slugParts].join('/') },
+			props: page,
+		};
+	});
+
+	return [...paths, ...latestPaths];
+}
+---
+
+<DocsLayout {...Astro.props} />

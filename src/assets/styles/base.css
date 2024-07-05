@@ -50,7 +50,7 @@
 	display: block;
 }
 
-[astro-icon].icon-light > * {
+[data-icon].icon-light > * {
 	stroke-width: 1.2;
 }
 

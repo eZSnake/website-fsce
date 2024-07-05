@@ -1,4 +1,5 @@
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 
 import { defineConfig } from 'astro/config';
@@ -10,10 +11,12 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import type { Options as rehypeAutolinkOptions } from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
 import { toString } from 'hast-util-to-string';
+import icon from 'astro-icon';
 
 import { SITE } from './src/config.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const caddyFileLang = JSON.parse(fs.readFileSync('./caddyfile.tmLanguage.json', 'utf8'));
 
 const autolinkOptions: rehypeAutolinkOptions = {
 	behavior: 'append',
@@ -32,8 +35,8 @@ const autolinkOptions: rehypeAutolinkOptions = {
 };
 
 export default defineConfig({
-	site: "https://castn.github.io/",
-	base: "website-fsce",
+	site: SITE.origin,
+	base: SITE.basePathname,
 	trailingSlash: SITE.trailingSlash ? 'always' : 'never',
 
 	output: 'static',
@@ -44,10 +47,14 @@ export default defineConfig({
 		}),
 		sitemap(),
 		mdx(),
+		icon(),
 	],
 
 	markdown: {
 		rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, autolinkOptions]],
+		shikiConfig: {
+			langs: [caddyFileLang],
+		},
 	},
 
 	vite: {
