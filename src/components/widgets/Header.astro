@@ -29,34 +29,27 @@ import { getHomePermalink, getBlogPermalink, getPermalink, getRelativeLink } fro
 				<li>
 					<a
 						class="font-medium hover:text-zinc-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
-						href={getRelativeLink('docs/latest')}>Docs</a
+						href={getRelativeLink('docs/latest')}>Fachschaft</a
 					>
 				</li>
 				<li>
 					<a
 						class="font-medium hover:text-zinc-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
-						href={getBlogPermalink()}>News</a
+						href={getBlogPermalink()}>Studium</a
 					>
 				</li>
 				<li>
 					<a
 						class="font-medium hover:text-zinc-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
-						href={getPermalink('releases', 'page')}
-						>Releases
+						href={"/faq/"}
+						>Infos
 					</a>
 				</li>
 				<li>
 					<a
 						class="font-medium hover:text-zinc-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
 						href={getPermalink('faq', 'page')}
-						>FAQ
-					</a>
-				</li>
-				<li class="md:hidden">
-					<a
-						class="font-bold hover:text-zinc-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
-						href="https://codeberg.org/forgejo/forgejo"
-						>Source code
+						>Links
 					</a>
 				</li>
 			</ul>
@@ -71,11 +64,25 @@ import { getHomePermalink, getBlogPermalink, getPermalink, getRelativeLink } fro
 						<Icon name="tabler:rss" class="w-5 h-5" />
 					</a>
 					<a
-						href="https://codeberg.org/forgejo/forgejo"
+						href="https://github.com/castn/website-fsce"
 						class="inline-block text-zinc-500 dark:text-zinc-400 hover:bg-steel-100 dark:hover:bg-steel-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
-						aria-label="Forgejo repository on Codeberg"
+						aria-label="Website repository on Github"
 					>
 						<Icon name="tabler:git-merge" class="w-5 h-5" />
+					</a>
+					<a
+						class="text-zinc-500 dark:text-zinc-400 hover:bg-steel-100 dark:hover:bg-steel-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+						aria-label="Computational Engineering website"
+						href={'https://www.ce.tu-darmstadt.de/ce/vorstellung_ce/index.de.jsp'}
+					>
+						<Icon name="ce-logo" class="w-7 h-7" />
+					</a>
+					<a
+						class="text-zinc-500 dark:text-zinc-400 hover:bg-steel-100 dark:hover:bg-steel-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+						aria-label="TU Darmstadt website"
+						href={'https://www.tu-darmstadt.de/'}
+					>
+						<Icon name="tuda-logo" class="w-35 h-10" />
 					</a>
 				</div>
 			</div>
