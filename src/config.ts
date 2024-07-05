@@ -2,7 +2,7 @@ export const SITE = {
 	name: 'Forgejo',
 
 	origin: 'https://castn.github.io/website-fsce/',
-	basePathname: 'website-fsce',
+	basePathname: '/',
 	trailingSlash: true,
 
 	title: 'Fachschaft CE',
