@@ -35,8 +35,8 @@ const autolinkOptions: rehypeAutolinkOptions = {
 };
 
 export default defineConfig({
-	site: "https://castn.github.io/website-fsce/",
-	base: "/",
+	site: "https://castn.github.io/",
+	base: "website-fsce",
 	trailingSlash: SITE.trailingSlash ? 'always' : 'never',
 
 	output: 'static',
