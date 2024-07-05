@@ -1,43 +1,44 @@
 ---
 layout: '~/layouts/Markdown.astro'
-publishDate: 'Aug 08 2022'
-title: 'Privacy Policy'
+publishDate: 'July 05 2024'
+title: 'Datenschutzerklärung'
 ---
 
-Forgejo takes your privacy seriously. To better protect your privacy we provide this privacy policy notice explaining the way your personal information is collected and used.
+Wir nehmen den Schutz deiner Daten ernst. Um deine Privatsphäre besser zu schützen, stellen wir dir diese
+Datenschutzerklärung zur Verfügung, in der wir dir erklären, wie deine persönlichen Daten gesammelt und verwendet
+werden.
 
-#### Information we collect
+#### Informationen, die wir sammeln
 
-This website does not track information about its visitors. We do however host this site on an external hosting provider. See [Other Third Parties](#other-third-parties) for details.
+Diese Website verfolgt keine Informationen über ihre Besucher.
 
-#### Your contributions
+#### Cookies und Werbung
 
-For all data you contribute to Forgejo (for example code, page content, people profile), you have full responsibility and control to add, modify and create this data. If some of your data cannot be modified by you, this is considered a technical bug that needs urgent fixing. Please report all issues to the Forgejo [Issue Tracker](https://codeberg.org/forgejo/discussions/issues).
+Diese Website verwendet keine Cookies, versteckten Pixel oder andere Tracker. Wir schalten auch keine Werbung auf
+unserer Webseite.
 
-Contributions are subject to a [Developer Certificate of Origin](/docs/next/developer/DCO).
+#### Links zu Websites von Dritten
 
-#### Cookies and Ads
+Wir haben auf dieser Website Links für deine Verwendung und als Referenz aufgenommen. Das Anklicken dieser Links kann
+dazuführen, dass du zu ihren Serverprotokollen hinzugefügt wirst. Wir sind nicht verantwortlich für die
+Datenschutzrichtlinien auf diesen Webseiten. Du solltest dir bewusst sein
+dass die Datenschutzrichtlinien dieser Webseiten von unseren eigenen abweichen können.
 
-This website does not use cookies, hidden pixels or any other trackers. We certainly do not include ads anywhere on our website.
+#### Sicherheit
 
-#### Other Third Parties
+Die Sicherheit Ihrer persönlichen Daten ist uns wichtig, aber denken Sie daran, dass keine Methode der Übertragung über
+das Internet oder eine elektronische Speicherung zu 100 % sicher ist. Wir bemühen uns zwar, Ihre persönlichen Daten mit
+akzeptablen Mitteln zu schützen persönlichen Daten zu schützen, können wir deren absolute Sicherheit nicht garantieren.
 
-The [website source](https://codeberg.org/forgejo/website) is hosted on [Codeberg](https://codeberg.org/) under a minimum-collection policy. All site data is subjected to the [Codeberg Terms of Use](https://codeberg.org/Codeberg/org/src/branch/main/TermsOfUse.md). Please read the [Codeberg Privacy Policy](https://codeberg.org/codeberg/org/src/branch/main/PrivacyPolicy.md).
+#### Änderungen an dieser Datenschutzerklärung
 
-#### Links to Third Party Websites
+Diese Datenschutzrichtlinie gilt ab 2024 und bleibt in Kraft, und tritt unmittelbar nach ihrer Veröffentlichung auf
+dieser Seite in Kraft.
 
-We have included links on this website for your use and reference. Following these links may lead to the `REFERRER` URL to be added to their server logs. We are not responsible for the privacy policies on these websites. You should be aware that the privacy policies of these websites may differ from our own.
+Wir behalten uns das Recht vor, unsere Datenschutzrichtlinie jederzeit zu aktualisieren oder zu ändern, und du sollten
+diese Datenschutzrichtlinie in regelmäßigen Abständen überprüfen. Sollten wir wesentliche Änderungen an dieser
+Datenschutzrichtlinie vornehmen, werden wir dies durch einen auffälligen Hinweis auf unserer Website und dokumentieren.
 
-#### Security
+#### Kontakt
 
-The security of your personal information is important to us, but remember that no method of transmission over the Internet, or method of electronic storage, is 100% secure. While we strive to use acceptable means to protect your personal information, we cannot guarantee its absolute security.
-
-#### Changes to This Privacy Policy
-
-This Privacy Policy is effective as of 2022 and will remain in effect except with respect to any changes in its provisions in the future, which will be in effect immediately after being posted on this page.
-
-We reserve the right to update or change our Privacy Policy at any time and you should check this Privacy Policy periodically. If we make any material changes to this Privacy Policy, we will notify you by placing a prominent notice on our website for a period of time and document the change on our repository [README](https://codeberg.org/forgejo/website/src/branch/main/README.md).
-
-#### Contact Information
-
-You can reach out to us by [creating an issue](https://codeberg.org/forgejo/discussions/issues) in our tracker or sending an email to contact@forgejo.org
+Du kannst dich an uns wenden, indem du uns eine E-Mail an contact@forgejo.org sendest.
