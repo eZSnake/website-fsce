@@ -1,0 +1,60 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const items = [
+	{
+		link: "https://orga.fachschaft.ce.tu-darmstadt.de/projects/fachschaft/wiki/wiki",
+		title: 'Wiki',
+		description:
+			'Fachschafts Wiki',
+		icon: 'ic:round-checklist',
+	},
+	{
+		link: "https://orga.fachschaft.ce.tu-darmstadt.de/projects/fachschaft/",
+		title: 'OpenProject',
+		description:
+			'Orga Tool der Fachschaft CE',
+		icon: 'ic:round-checklist',
+	},
+	{
+		link: "https://thalia.gsc.ce.tu-darmstadt.de/fachschaftce/",
+		title: 'GitLab',
+		description:
+			'Alle Repositories der Fachschaft CE',
+		icon: 'ic:round-checklist',
+	},
+];
+---
+
+<section class="relative">
+	<div class="absolute inset-1 pointer-events-none mb-5" aria-hidden="true"></div>
+	<div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+		<div class="py-4 pt-8 sm:py-6 lg:py-8 lg:pt-12">
+			<div class="mb-8 text-center">
+				<p class="text-base text-primary-600 dark:text-primary-200 font-semibold tracking-wide uppercase">Tooling</p>
+				<h2 class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading">
+					Shortcuts
+				</h2>
+				<p class="max-w-3xl mx-auto text-center text-xl text-zinc-600 dark:text-zinc-400">
+					Hier eine Sammlung von Tools welche die Fachschaft zur Zeit für ihre Arbeit verwendet.
+				</p>
+			</div>
+			<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start my-12 dark:text-white">
+				{
+					items.map(({ link, title, description, icon }) => (
+						<a href={link}>
+							<div
+								class="relative flex flex-col p-10 bg-white dark:bg-steel-900 rounded shadow-xl hover:shadow-lg transition dark:border dark:border-slate-800">
+								<div class="flex items-center mb-4">
+									<Icon name={icon} class="w-12 h-12" />
+									<div class="ml-4 text-xl font-bold">{title}</div>
+								</div>
+								<p class="text-zinc-500 dark:text-zinc-400 text-md">{description}</p>
+							</div>
+						</a>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</section>
