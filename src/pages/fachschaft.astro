@@ -3,10 +3,10 @@ import { SITE } from '~/config.js';
 import { getCanonical, getHomePermalink } from '~/utils/permalinks';
 import Layout from '~/layouts/PageLayout.astro';
 
-import Features from '~/components/widgets/Features.astro';
+import Features from '~/pages/fachschaft/mitglieder.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Features3 from '~/components/widgets/Features3.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features4 from '~/pages/fachschaft/intern.astro';
 
 const meta = {
 	title: "Fachschaft",
@@ -19,4 +19,5 @@ const meta = {
 	<Features />
 	<Features2 />
 	<Features3 />
+	<Features4 />
 </Layout>

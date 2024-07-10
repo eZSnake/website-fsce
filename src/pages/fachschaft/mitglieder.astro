@@ -3,19 +3,15 @@ import { SITE } from '~/config.js';
 import { getCanonical, getHomePermalink } from '~/utils/permalinks';
 import Layout from '~/layouts/PageLayout.astro';
 
-import Hero from '~/components/widgets/Hero.astro';
-import Features from '~/pages/fachschaft/mitglieder.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Feature from '~/components/widgets/Mitglieder.astro';
 
 const meta = {
-	title: SITE.title,
+	title: "Mitglieder",
 	description: SITE.description,
 	canonical: getCanonical(getHomePermalink()),
 };
 ---
 
 <Layout {meta}>
-	<Hero />
-	<Features />
-	<CallToAction />
+	<Feature />
 </Layout>

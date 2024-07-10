@@ -96,3 +96,17 @@ div.page-footer > :not(:first-child) {
 		display: none;
 	}
 }
+
+:root {
+    --icon-light: url('../../icons/tuda-logo.svg');
+    --icon-dark: url('../../icons/tuda-logo-dark.svg');
+}
+
+html[data-theme='light'] #theme-icon {
+    content: var(--icon-light);
+}
+
+html[data-theme='dark'] #theme-icon {
+    content: var(--icon-dark);
+}
+

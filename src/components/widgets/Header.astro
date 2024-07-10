@@ -35,27 +35,37 @@ import { getHomePermalink, getBlogPermalink, getPermalink, getRelativeLink } fro
 						<li>
 							<a
 								class="first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-zinc-900 dark:md:hover:bg-gray-100 dark:hover:text-zinc-900 dark:hover:bg-gray-100 py-2 px-5 block whitespace-no-wrap"
-								href={getRelativeLink('fachschaft')}>Mitglieder</a>
+								href={getRelativeLink('fachschaft/mitglieder')}>
+								Mitglieder
+							</a>
 						</li>
 						<li>
 							<a
 								class="first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-zinc-900 dark:md:hover:bg-gray-100 dark:hover:text-zinc-900 dark:hover:bg-gray-100 py-2 px-5 block whitespace-no-wrap"
-								href={getRelativeLink('fachschaft')}>Aufgaben</a>
+								href={getRelativeLink('fachschaft')}>
+								Aufgaben
+							</a>
 						</li>
 						<li>
 							<a
 								class="first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-zinc-900 dark:md:hover:bg-gray-100 dark:hover:text-zinc-900 dark:hover:bg-gray-100 py-2 px-5 block whitespace-no-wrap"
-								href={getRelativeLink('fachschaft')}>Mitmachen</a>
+								href={getRelativeLink('fachschaft')}>
+								Mitmachen
+							</a>
 						</li>
 						<li>
 							<a
 								class="first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-zinc-900 dark:md:hover:bg-gray-100 dark:hover:text-zinc-900 dark:hover:bg-gray-100 py-2 px-5 block whitespace-no-wrap"
-								href={getRelativeLink('fachschaft/interna')}>Interna</a>
+								href={getRelativeLink('fachschaft/intern')}>
+								Intern
+							</a>
 						</li>
 						<li>
 							<a
 								class="first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-zinc-900 dark:md:hover:bg-gray-100 dark:hover:text-zinc-900 dark:hover:bg-gray-100 py-2 px-5 block whitespace-no-wrap"
-								href={getRelativeLink('fachschaft')}>Kontakt</a>
+								href={getRelativeLink('fachschaft')}>
+								Kontakt
+							</a>
 						</li>
 					</ul>
 				</li>
@@ -68,37 +78,46 @@ import { getHomePermalink, getBlogPermalink, getPermalink, getRelativeLink } fro
 						<li>
 							<a
 								class="first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-zinc-900 dark:md:hover:bg-gray-100 dark:hover:text-zinc-900 dark:hover:bg-gray-100 py-2 px-5 block whitespace-no-wrap"
-								href={getRelativeLink('studium')}>Studierende</a>
+								href={getRelativeLink('studium')}>
+								Studierende
+							</a>
 						</li>
 						<li>
 							<a
 								class="first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-zinc-900 dark:md:hover:bg-gray-100 dark:hover:text-zinc-900 dark:hover:bg-gray-100 py-2 px-5 block whitespace-no-wrap"
-								href={getRelativeLink('study-start')}>Studienanfang</a>
+								href={getRelativeLink('study-start')}>
+								Studienanfang
+							</a>
 						</li>
 						<li>
 							<a
 								class="first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-zinc-900 dark:md:hover:bg-gray-100 dark:hover:text-zinc-900 dark:hover:bg-gray-100 py-2 px-5 block whitespace-no-wrap"
-								href={getRelativeLink('study-start')}>Vor dem Studium</a>
+								href={getRelativeLink('study-start')}>
+								Vor dem Studium
+							</a>
 						</li>
 					</ul>
 				</li>
 				<li>
 					<a
 						class="font-medium hover:text-zinc-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
-						href={getBlogPermalink()}>News</a
-					>
-				</li>
-				<li>
-					<a
-						class="font-medium hover:text-zinc-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
-						href={getPermalink('links', 'page')}
-					>Links
+						href={getBlogPermalink()}>
+						News
 					</a>
 				</li>
 				<li>
 					<a
 						class="font-medium hover:text-zinc-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
-						href={getRelativeLink('faq')}>FAQ</a>
+						href={getPermalink('links', 'page')}>
+						Links
+					</a>
+				</li>
+				<li>
+					<a
+						class="font-medium hover:text-zinc-900 dark:hover:text-white px-4 py-3 flex items-center transition duration-150 ease-in-out"
+						href={getRelativeLink('faq')}>
+						FAQ
+					</a>
 				</li>
 			</ul>
 			<div class="md:self-center flex items-center mb-4 md:mb-0 ml-2">
@@ -130,8 +149,7 @@ import { getHomePermalink, getBlogPermalink, getPermalink, getRelativeLink } fro
 						aria-label="TU Darmstadt website"
 						href={'https://www.tu-darmstadt.de/'}
 					>
-						<Icon name="tuda-logo" class="w-40 h-10" />
-						<!-- <Icon name="tuda-logo-dark" class="w-40 h-10" /> -->
+						<Icon name="tuda-logo-both" class="w-40 h-10" id="tuda-logo"/>
 					</a>
 				</div>
 			</div>
