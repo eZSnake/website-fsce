@@ -5,6 +5,43 @@ import ToggleTheme from '~/components/core/ToggleTheme.astro';
 import ToggleMenu from '~/components/core/ToggleMenu.astro';
 
 import { getHomePermalink, getBlogPermalink, getPermalink, getRelativeLink } from '~/utils/permalinks';
+
+const fachschaft_items = [
+	{
+		link: 'fachschaft/mitglieder',
+		title: 'Mitglieder',
+	},
+	{
+		link: 'fachschaft/mitglieder',
+		title: 'Aufgaben',
+	},
+	{
+		link: 'fachschaft/mitglieder',
+		title: 'Mitmachen',
+	},
+	{
+		link: 'fachschaft/intern',
+		title: 'Intern',
+	},
+	{
+		link: 'fachschaft/mitglieder',
+		title: 'Kontakt',
+	},
+];
+const study_items = [
+	{
+		link: 'studium',
+		title: 'Studierende',
+	},
+	{
+		link: 'study-start',
+		title: 'Studienanfang',
+	},
+	{
+		link: 'study-start',
+		title: 'Vor dem Studium',
+	},
+];
 ---
 
 <header
@@ -32,41 +69,17 @@ import { getHomePermalink, getBlogPermalink, getPermalink, getRelativeLink } fro
 					</button>
 					<ul
 						class="dropdown-menu md:backdrop-blur-md dark:md:text-white rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 dark:md:bg-gray-700 md:min-w-[150px] drop-shadow-xl">
-						<li>
-							<a
-								class="first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-zinc-900 dark:md:hover:bg-gray-100 dark:hover:text-zinc-900 dark:hover:bg-gray-100 py-2 px-5 block whitespace-no-wrap"
-								href={getRelativeLink('fachschaft/mitglieder')}>
-								Mitglieder
-							</a>
-						</li>
-						<li>
-							<a
-								class="first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-zinc-900 dark:md:hover:bg-gray-100 dark:hover:text-zinc-900 dark:hover:bg-gray-100 py-2 px-5 block whitespace-no-wrap"
-								href={getRelativeLink('fachschaft')}>
-								Aufgaben
-							</a>
-						</li>
-						<li>
-							<a
-								class="first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-zinc-900 dark:md:hover:bg-gray-100 dark:hover:text-zinc-900 dark:hover:bg-gray-100 py-2 px-5 block whitespace-no-wrap"
-								href={getRelativeLink('fachschaft')}>
-								Mitmachen
-							</a>
-						</li>
-						<li>
-							<a
-								class="first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-zinc-900 dark:md:hover:bg-gray-100 dark:hover:text-zinc-900 dark:hover:bg-gray-100 py-2 px-5 block whitespace-no-wrap"
-								href={getRelativeLink('fachschaft/intern')}>
-								Intern
-							</a>
-						</li>
-						<li>
-							<a
-								class="first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-zinc-900 dark:md:hover:bg-gray-100 dark:hover:text-zinc-900 dark:hover:bg-gray-100 py-2 px-5 block whitespace-no-wrap"
-								href={getRelativeLink('fachschaft')}>
-								Kontakt
-							</a>
-						</li>
+						{
+							fachschaft_items.map(({ link, title}) => (
+								<li>
+									<a
+										class="first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-zinc-900 dark:md:hover:bg-gray-100 dark:hover:text-zinc-900 dark:hover:bg-gray-100 py-2 px-5 block whitespace-no-wrap"
+										href={getRelativeLink(link)}>
+										{title}
+									</a>
+								</li>
+							))
+						}
 					</ul>
 				</li>
 				<li class="dropdown">
@@ -75,27 +88,17 @@ import { getHomePermalink, getBlogPermalink, getPermalink, getRelativeLink } fro
 					</button>
 					<ul
 						class="dropdown-menu md:backdrop-blur-md dark:md:text-white rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 dark:md:bg-gray-700 md:min-w-[150px] drop-shadow-xl">
-						<li>
-							<a
-								class="first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-zinc-900 dark:md:hover:bg-gray-100 dark:hover:text-zinc-900 dark:hover:bg-gray-100 py-2 px-5 block whitespace-no-wrap"
-								href={getRelativeLink('studium')}>
-								Studierende
-							</a>
-						</li>
-						<li>
-							<a
-								class="first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-zinc-900 dark:md:hover:bg-gray-100 dark:hover:text-zinc-900 dark:hover:bg-gray-100 py-2 px-5 block whitespace-no-wrap"
-								href={getRelativeLink('study-start')}>
-								Studienanfang
-							</a>
-						</li>
-						<li>
-							<a
-								class="first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-zinc-900 dark:md:hover:bg-gray-100 dark:hover:text-zinc-900 dark:hover:bg-gray-100 py-2 px-5 block whitespace-no-wrap"
-								href={getRelativeLink('study-start')}>
-								Vor dem Studium
-							</a>
-						</li>
+						{
+							study_items.map(({ link, title}) => (
+								<li>
+									<a
+										class="first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-zinc-900 dark:md:hover:bg-gray-100 dark:hover:text-zinc-900 dark:hover:bg-gray-100 py-2 px-5 block whitespace-no-wrap"
+										href={getRelativeLink(link)}>
+										{title}
+									</a>
+								</li>
+							))
+						}
 					</ul>
 				</li>
 				<li>
