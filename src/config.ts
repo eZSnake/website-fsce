@@ -7,7 +7,7 @@ export const SITE = {
 
 	title: 'Fachschaft CE',
 	description:
-		'Die Fachschaft CE ist die Fachschaft CE an der TU Darmstadt',
+		'Die Fachschaft CE ist die Fachschaft des SB CE an der TU Darmstadt',
 };
 
 export const BLOG = {
