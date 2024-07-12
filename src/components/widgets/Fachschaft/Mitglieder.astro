@@ -9,7 +9,7 @@ const items = [
 				'6. Semester Bachelor, Vertiefung Informatik',
 			roles:
 				'FSR, GemKo',
-			icon: 'ic:round-bolt',
+			icon: 'ic:round-person',
 		},
 		{
 			title: 'Carsten Wesp',
@@ -17,7 +17,7 @@ const items = [
 				'6. Semester Bachelor, Vertiefung Elektrotechnik',
 			roles:
 				'FSR, GemKo',
-			icon: 'ic:round-bolt',
+			icon: 'ic:round-person',
 		},
 		{
 			title: 'Eike Rehwald',
@@ -25,7 +25,7 @@ const items = [
 				'6. Semester Bachelor, Vertiefung Mathe Mechanik',
 			roles:
 				'FSR, GemKo',
-			icon: 'ic:round-bolt',
+			icon: 'ic:round-person',
 		},
 	],
 ];
@@ -54,22 +54,25 @@ const items = [
 					items.map((subitems) => (
 						<div class="space-y-8 sm:px-8">
 							{subitems.map(({ title, description, roles, icon }) => (
-								<div class="flex flex-row max-w-md">
+								<div class="flex flex-row space-x-4"> 
 									<div class="mb-4 mr-5">
-										{icon && <Icon name={icon} class="w-10 h-10 text-primary-600 dark:text-primary-500" />}
+										{icon && <Icon name={icon} class="w-10 h-10 text-blue-500" />}
 									</div>
-									<div>
+									<div class="flex-grow">
 										<h3
 											class="
-											leading-10 text-xl font-bold text-steel-600 dark:text-white
-											underline decoration-1 decoration-steel-100 dark:decoration-steel-600 underline-offset-[0.5rem]"
-										>
+												leading-10 text-xl font-bold text-steel-600 dark:text-white
+												underline decoration-1 decoration-steel-100 dark:decoration-steel-600 underline-offset-[0.5rem]"
+											>
 											{title}
 										</h3>
 										<p class="text-steel-600 dark:text-steel-200" set:html={description} />
 										<p class="text-steel-600 dark:text-steel-200">
 											Gewählte Position(en): {roles}
 										</p>
+									</div>
+									<div class="flex-shrink-0">
+										<img src="./assets/images/thispersondoesnotexist.jpeg" alt="Portrait" class="w-10 h-10" />
 									</div>
 								</div>
 							))}

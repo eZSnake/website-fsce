@@ -39,6 +39,7 @@
     "@iconify-json/octicon": "^1.1.54",
     "@iconify-json/simple-icons": "^1.1.101",
     "@iconify-json/tabler": "^1.1.111",
+    "@iconify/tailwind": "^1.1.1",
     "@tailwindcss/typography": "^0.5.13",
     "@types/hast": "^3.0.4",
     "@types/sanitize-html": "^2.11.0",
