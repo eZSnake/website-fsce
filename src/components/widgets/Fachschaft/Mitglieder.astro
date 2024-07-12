@@ -2,28 +2,6 @@
 import { Icon } from 'astro-icon/components';
 
 const items = [
-	/*
-[
-		{
-			title: '1. Detektiv: Justus Jonas',
-			description:
-				'Wohnt bei Onkel Titus und Tante Mathilda auf Schrottplatz',
-			icon: 'ic:round-checklist',
-		},
-		{
-			title: '2. Detektiv: Peter Shaw',
-			description:
-				'Der Sportlichste von den Dreien',
-			icon: 'octicon:git-branch',
-		},
-		{
-			title: 'Recherche und Archiv: Bob Andrews',
-			description:
-				'Sitzt den ganzen Tag in der Bücherei von Rocky Beach',
-			icon: 'ic:round-rocket-launch',
-		},
-	],
-	*/
 	[
 		{
 			title: 'Alex Zieschang',
@@ -47,12 +25,12 @@ const items = [
 ];
 ---
 
-<section class="scroll-mt-16 dark:bg-steel-700" id="features">
+<section class="scroll-mt-16 dark:bg-steel-700">
 	<div class="px-4 py-16 mx-auto max-w-6xl lg:px-8 lg:py-20">
-		<div class="mb-10 md:mx-auto sm:text-center md:mb-12 max-w-3xl">
-			<!-- <p class="text-base mb-4 text-primary-600 dark:text-steel-200 font-semibold tracking-wide uppercase">
+		<!-- <div class="mb-10 md:mx-auto sm:text-center md:mb-12 max-w-3xl">
+			<p class="text-base mb-4 text-primary-600 dark:text-steel-200 font-semibold tracking-wide uppercase">
 				Highlights
-			</p> -->
+			</p>
 			<h2
 				class="text-4xl md:text-5xl leading-tighter tracking-tighter font-heading pb-6 bg-gradient-to-r from-blue-500 to-cyan-600 bg-clip-text text-transparent font-bold"
 			>
@@ -63,7 +41,22 @@ const items = [
 			>
 				Wir sind die Fachschaft des Studienbereichs Computational Engineering und ab und zu machen wir Sachen.
 			</p>
+		</div> -->
+		<h1 class="text-4xl md:text-4xl dark:text-steel-100 md:text-center font-bold text-justify pb-4">
+			Wer ist Teil der Fachschaft?
+		</h1>
+		<div class="text-xl pb-8">
+			<p dark:text-steel-100>
+				Per Definition sind alle, die in den Studiengang Computational Engineering, egal ob Bachelor oder Master, eingeschrieben sind Teil der Fachschaft. <br>
+				Wir unterscheiden hier aber zwischen der allgemeinen Fachschaft und der aktiven Fachschaft. <br>
+				Die Mitglieder der aktiven Fachschaft treffen alle möglichen Entscheidungen rund um den Studiengang.
+				Unter anderem sind diese Mitglieder auch die, die für Rollen wie <b><u>F</u></b>ach<b><u>S</u></b>chafts<b><u>R</u></b>at und Verterter in der <b><u>Gem</u></b>einsamen <b><u>Ko</u></b>mission.
+				Der aktiven Fachschaft beizutreten ist sehr einfach. Mehr Infos hierzu unter <a style="color:DodgerBlue;" href="/fachschaft/mitmachen/"><u>Mitmachen</u></a>.
+			</p>
 		</div>
+		<h1 class="text-4xl md:text-4xl dark:text-steel-100 md:text-center font-bold text-justify pb-4">
+			Mitglieder der aktiven Fachschaft
+		</h1>
 		<div class="grid mx-auto space-y-6 md:grid-cols-1 md:space-y-0 justify-center">
 			{
 				items.map((subitems) => (
