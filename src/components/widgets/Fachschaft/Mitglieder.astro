@@ -7,18 +7,24 @@ const items = [
 			title: 'Alex Zieschang',
 			description:
 				'6. Semester Bachelor, Vertiefung Informatik',
+			roles:
+				'FSR, GemKo',
 			icon: 'ic:round-bolt',
 		},
 		{
 			title: 'Carsten Wesp',
 			description:
 				'6. Semester Bachelor, Vertiefung Elektrotechnik',
+			roles:
+				'FSR, GemKo',
 			icon: 'ic:round-bolt',
 		},
 		{
 			title: 'Eike Rehwald',
 			description:
 				'6. Semester Bachelor, Vertiefung Mathe Mechanik',
+			roles:
+				'FSR, GemKo',
 			icon: 'ic:round-bolt',
 		},
 	],
@@ -26,62 +32,51 @@ const items = [
 ---
 
 <section class="scroll-mt-16 dark:bg-steel-700">
-	<div class="px-4 py-16 mx-auto max-w-6xl lg:px-8 lg:py-20">
-		<!-- <div class="mb-10 md:mx-auto sm:text-center md:mb-12 max-w-3xl">
-			<p class="text-base mb-4 text-primary-600 dark:text-steel-200 font-semibold tracking-wide uppercase">
-				Highlights
-			</p>
-			<h2
-				class="text-4xl md:text-5xl leading-tighter tracking-tighter font-heading pb-6 bg-gradient-to-r from-blue-500 to-cyan-600 bg-clip-text text-transparent font-bold"
-			>
-				Die Fachschaft Computational Engineering
-			</h2>
-			<p
-				class="max-w-3xl mx-auto sm:text-center text-xl text-steel-600 dark:text-steel-100 py-3 my-3 border-y border-steel-100 dark:border-steel-600"
-			>
-				Wir sind die Fachschaft des Studienbereichs Computational Engineering und ab und zu machen wir Sachen.
-			</p>
-		</div> -->
-		<h1 class="text-4xl md:text-4xl dark:text-steel-100 md:text-center font-bold text-justify pb-4">
-			Wer ist Teil der Fachschaft?
-		</h1>
-		<div class="text-xl pb-8">
-			<p dark:text-steel-100>
-				Per Definition sind alle, die in den Studiengang Computational Engineering, egal ob Bachelor oder Master, eingeschrieben sind Teil der Fachschaft. <br>
-				Wir unterscheiden hier aber zwischen der allgemeinen Fachschaft und der aktiven Fachschaft. <br>
-				Die Mitglieder der aktiven Fachschaft treffen alle möglichen Entscheidungen rund um den Studiengang.
-				Unter anderem sind diese Mitglieder auch die, die für Rollen wie <b><u>F</u></b>ach<b><u>S</u></b>chafts<b><u>R</u></b>at und Verterter in der <b><u>Gem</u></b>einsamen <b><u>Ko</u></b>mission.
-				Der aktiven Fachschaft beizutreten ist sehr einfach. Mehr Infos hierzu unter <a style="color:DodgerBlue;" href="/fachschaft/mitmachen/"><u>Mitmachen</u></a>.
-			</p>
-		</div>
-		<h1 class="text-4xl md:text-4xl dark:text-steel-100 md:text-center font-bold text-justify pb-4">
-			Mitglieder der aktiven Fachschaft
-		</h1>
-		<div class="grid mx-auto space-y-6 md:grid-cols-1 md:space-y-0 justify-center">
-			{
-				items.map((subitems) => (
-					<div class="space-y-8 sm:px-8">
-						{subitems.map(({ title, description, icon }) => (
-							<div class="flex flex-row max-w-md">
-								<div class="mb-4 mr-5">
-									{icon && <Icon name={icon} class="w-10 h-10 text-primary-600 dark:text-primary-500" />}
+	<div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+		<div class="py-4 pt-8 sm:py-6 lg:py-8 lg:pt-12">
+			<h1 class="text-4xl dark:text-steel-100 md:text-center font-bold text-justify pb-4">
+				Wer ist Teil der Fachschaft?
+			</h1>
+			<div class="text-xl pb-8">
+				<p dark:text-steel-100>
+					Per Definition sind alle, die in den Studiengang Computational Engineering, egal ob Bachelor oder Master, eingeschrieben sind Teil der Fachschaft. <br>
+					Wir unterscheiden hier aber zwischen der allgemeinen Fachschaft und der aktiven Fachschaft. <br>
+					Die Mitglieder der aktiven Fachschaft treffen alle möglichen Entscheidungen rund um den Studiengang.
+					Unter anderem sind diese Mitglieder auch die, die für Rollen wie <b><u>F</u></b>ach<b><u>S</u></b>chafts<b><u>R</u></b>at und Verterter in der <b><u>Gem</u></b>einsamen <b><u>Ko</u></b>mission.
+					Der aktiven Fachschaft beizutreten ist sehr einfach. Mehr Infos hierzu unter <a style="color:DodgerBlue;" href="/fachschaft/mitmachen/"><u>Mitmachen</u></a>.
+				</p>
+			</div>
+			<h1 class="text-4xl md:text-4xl dark:text-steel-100 md:text-center font-bold text-justify pb-4">
+				Mitglieder der aktiven Fachschaft
+			</h1>
+			<div class="grid mx-auto space-y-6 md:grid-cols-1 md:space-y-0 justify-center">
+				{
+					items.map((subitems) => (
+						<div class="space-y-8 sm:px-8">
+							{subitems.map(({ title, description, roles, icon }) => (
+								<div class="flex flex-row max-w-md">
+									<div class="mb-4 mr-5">
+										{icon && <Icon name={icon} class="w-10 h-10 text-primary-600 dark:text-primary-500" />}
+									</div>
+									<div>
+										<h3
+											class="
+											leading-10 text-xl font-bold text-steel-600 dark:text-white
+											underline decoration-1 decoration-steel-100 dark:decoration-steel-600 underline-offset-[0.5rem]"
+										>
+											{title}
+										</h3>
+										<p class="text-steel-600 dark:text-steel-200" set:html={description} />
+										<p class="text-steel-600 dark:text-steel-200">
+											Gewählte Position(en): {roles}
+										</p>
+									</div>
 								</div>
-								<div>
-									<h3
-										class="
-										leading-10 text-xl font-bold text-steel-600 dark:text-white
-										underline decoration-1 decoration-steel-100 dark:decoration-steel-600 underline-offset-[0.5rem]
-									"
-									>
-										{title}
-									</h3>
-									<p class="text-steel-600 dark:text-steel-200" set:html={description} />
-								</div>
-							</div>
-						))}
-					</div>
-				))
-			}
+							))}
+						</div>
+					))
+				}
+			</div>
 		</div>
 	</div>
 </section>
