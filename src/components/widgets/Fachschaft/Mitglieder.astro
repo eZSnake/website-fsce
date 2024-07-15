@@ -11,6 +11,7 @@ const items = [
 				'FSR, GemKo',
 			icon: 'ic:round-person',
 			portrait: "http://thispersondoesnotexist.com/",
+			email: "alexander.zieschang@stud.tu-darmstadt.de",
 		},
 		{
 			title: 'Carsten Wesp',
@@ -20,6 +21,7 @@ const items = [
 				'FSR, GemKo',
 			icon: 'ic:round-person',
 			portrait: "http://thispersondoesnotexist.com/",
+			email: "carsten.wesp@stud.tu-darmstadt.de",
 		},
 		{
 			title: 'Eike Rehwald',
@@ -29,6 +31,7 @@ const items = [
 				'FSR, GemKo',
 			icon: 'ic:round-person',
 			portrait: "http://thispersondoesnotexist.com/",
+			email: "eike.rehwald@stud.tu-darmstadt.de",
 		},
 	],
 ];
@@ -52,11 +55,11 @@ const items = [
 			<h1 class="text-4xl md:text-4xl dark:text-steel-100 md:text-center font-bold text-justify pb-4">
 				Mitglieder der aktiven Fachschaft
 			</h1>
-			<div class="grid mx-auto space-y-6 md:grid-cols-1 md:space-y-0 justify-center">
+			<div class="mx-auto space-y-6 md:space-y-0 justify-center">
 				{
 					items.map((subitems) => (
 						<div class="space-y-8 sm:px-8">
-							{subitems.map(({ title, description, roles, icon, portrait }) => (
+							{subitems.map(({ title, description, roles, icon, portrait, email }) => (
 								<div class="flex flex-row space-x-4"> 
 									<div class="mb-4 mr-5">
 										{icon && <Icon name={icon} class="w-10 h-10 text-blue-500" />}
@@ -64,7 +67,7 @@ const items = [
 									<div class="flex-grow">
 										<h3
 											class="
-												leading-10 text-xl font-bold text-steel-600 dark:text-white
+												leading-10 text-2xl font-bold text-steel-600 dark:text-white
 												underline decoration-1 decoration-steel-100 dark:decoration-steel-600 underline-offset-[0.5rem]"
 											>
 											{title}
@@ -72,6 +75,10 @@ const items = [
 										<p class="text-steel-600 dark:text-steel-200" set:html={description} />
 										<p class="text-steel-600 dark:text-steel-200">
 											Gewählte Position(en): {roles}
+										</p>
+										<p class="text-steel-600 dark:text-steel-200">
+											{/* Kontakt: <a href={email}>{email}</a> we can't have nice things in HMTL so no clickable email*/}
+											Kontakt: {email}
 										</p>
 									</div>
 									<div class="flex-shrink-0">

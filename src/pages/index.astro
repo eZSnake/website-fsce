@@ -3,9 +3,7 @@ import { SITE } from '~/config.js';
 import { getCanonical, getHomePermalink } from '~/utils/permalinks';
 import Layout from '~/layouts/PageLayout.astro';
 
-import Hero from '~/components/widgets/Hero.astro';
-import Features from '~/pages/fachschaft/mitglieder.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Homepage from '~/components/widgets/Homepage.astro';
 
 const meta = {
 	title: SITE.title,
@@ -15,7 +13,5 @@ const meta = {
 ---
 
 <Layout {meta}>
-	<Hero />
-	<!--<Features /> Hier muss eine Seite ohne Layout nur mit HTML code rein, sonst ist alles Doppelt-->
-	<CallToAction />
+	<Homepage />
 </Layout>
