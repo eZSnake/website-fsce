@@ -3,8 +3,7 @@ import { Icon } from 'astro-icon/components';
 import { Image, getImage } from 'astro:assets';
 
 import { getPermalink } from '~/utils/permalinks';
-
-import mascot from '~/assets/images/OwO-Blob.png';
+import mascot from '@assets/images/OwO-Blob.png';
 ---
 
 <section class="relative dark:bg-steel-700 border-b border-steel-600">
@@ -23,30 +22,12 @@ import mascot from '~/assets/images/OwO-Blob.png';
 				</hgroup>
 				<div style="grid-area: 1/2/5/3;">
 					<picture>
-						<source
-							srcset={`
-								${(await getImage({ src: mascot, width: 407, format: 'webp' })).src} 407w,
-								${(await getImage({ src: mascot, width: 814, format: 'webp' })).src} 814w,
-								${(await getImage({ src: mascot, width: 1629, format: 'webp' })).src} 1629w,
-							`}
-							type="image/webp"
-							sizes="(max-width: 767px) 407px, (max-width: 1479px) 814px, 1629px"
-						/>
-						<source
-							srcset={`
-								${(await getImage({ src: mascot, width: 407, format: 'png' })).src} 407w,
-								${(await getImage({ src: mascot, width: 814, format: 'png' })).src} 814w,
-								${(await getImage({ src: mascot, width: 1629, format: 'png' })).src} 1629w,
-							`}
-							type="image/png"
-							sizes="(max-width: 767px) 407px, (max-width: 1479px) 814px, 1629px"
-						/>
 						<Image
 							src={mascot}
 							alt=""
 							class="h-auto w-auto md:max-w-[125%] md:max-h-[calc(100%+20em)] mx-auto relative -mt-10 -z-10"
-							width={1629}
-							height={1273}
+							width={1240}
+							height={1055}
 							loading="eager"
 						/>
 					</picture>
