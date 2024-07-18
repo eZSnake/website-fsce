@@ -6,10 +6,27 @@ import Footer from '~/components/widgets/Footer.astro';
 const { meta } = Astro.props;
 ---
 
+<style>
+	body {
+	  display: flex;
+	  min-height: 100vh;
+	  margin: 0;
+	  flex-direction: column;
+	}
+  
+	.content { /* Add this class to your main content container */
+	  flex: 1;
+	}
+  
+	footer {
+	  margin-top: auto;
+	}
+  </style>
+
 <Layout {meta}>
 	<Header />
-	<main>
-		<slot />
+	<main class="content">
+	  <slot />
 	</main>
 	<Footer />
-</Layout>
+  </Layout>
