@@ -3,7 +3,7 @@ import { getHomePermalink } from '~/utils/permalinks';
 import { DOCS } from '~/config';
 import { Image, getImage } from 'astro:assets';
 
-import mascot from '~/assets/images/skillblob.png';
+import mascot from '@assets/images/skillblob.png';
 ---
 
 <section class="flex items-center h-full p-16">
@@ -11,7 +11,7 @@ import mascot from '~/assets/images/skillblob.png';
 		<div class="max-w-3xl text-center">
 
 			<picture>
-				<source
+				<!-- <source
 					srcset={`
 								${(await getImage({ src: mascot, width: 407, format: 'webp' })).src} 407w,
 								${(await getImage({ src: mascot, width: 814, format: 'webp' })).src} 814w,
@@ -19,7 +19,7 @@ import mascot from '~/assets/images/skillblob.png';
 							`}
 					type="image/webp"
 					sizes="(max-width: 767px) 407px, (max-width: 1479px) 814px, 1629px"
-				/>
+				/> -->
 				<source
 					srcset={`
 								${(await getImage({ src: mascot, width: 407, format: 'png' })).src} 407w,
@@ -41,7 +41,7 @@ import mascot from '~/assets/images/skillblob.png';
 			
 			<h2 class="mb-8 font-bold text-9xl">
 				<span class="sr-only">Error</span>
-				<span class="bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500">404</span>
+				<span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-cyan-500">404</span>
 			</h2>
 			<p class="text-3xl font-semibold md:text-3xl">Sorry, we couldn't find this page.</p>
 			<p class="mt-4 mb-8 text-lg text-zinc-600 dark:text-zinc-400">
