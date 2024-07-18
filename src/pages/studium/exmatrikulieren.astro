@@ -1,0 +1,17 @@
+---
+import { SITE } from '~/config.js';
+import { getCanonical, getHomePermalink } from '~/utils/permalinks';
+import Layout from '~/layouts/PageLayout.astro';
+
+import Homepage from '~/components/widgets/Studium/Exmatrikulieren.astro';
+
+const meta = {
+	title: SITE.title,
+	description: SITE.description,
+	canonical: getCanonical(getHomePermalink()),
+};
+---
+
+<Layout {meta}>
+	<Homepage />
+</Layout>
