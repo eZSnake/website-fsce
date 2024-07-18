@@ -67,6 +67,7 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "@iconify-json/devicon": "^1.1.46"
+    "@iconify-json/devicon": "^1.1.46",
+    "date-fns": "^3.6.0"
   }
 }

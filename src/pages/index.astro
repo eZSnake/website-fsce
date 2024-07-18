@@ -4,6 +4,7 @@ import { getCanonical, getHomePermalink } from '~/utils/permalinks';
 import Layout from '~/layouts/PageLayout.astro';
 
 import Homepage from '~/components/widgets/Homepage.astro';
+import Event from '~/components/widgets/events.astro';
 
 const meta = {
 	title: SITE.title,
@@ -14,4 +15,5 @@ const meta = {
 
 <Layout {meta}>
 	<Homepage />
+	<Event />
 </Layout>
