@@ -1,0 +1,17 @@
+---
+import { SITE } from '~/config.js';
+import { getCanonical, getHomePermalink } from '~/utils/permalinks';
+import Layout from '~/layouts/PageLayout.astro';
+
+import WhatIsCE from '~/components/widgets/Studium/whatIsCE.astro';
+
+const meta = {
+	title: SITE.title,
+	description: SITE.description,
+	canonical: getCanonical(getHomePermalink()),
+};
+---
+
+<Layout {meta}>
+	<WhatIsCE />
+</Layout>
