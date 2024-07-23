@@ -9,8 +9,8 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				primary: colors.orange,
-				secondary: colors.yellow,
+				primary: colors.blue,
+				secondary: colors.cyan,
 				steel: {
 					100: '#D2E0F0',
 					200: '#AEBED0',

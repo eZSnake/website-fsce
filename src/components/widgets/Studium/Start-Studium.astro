@@ -1,5 +1,6 @@
 ---
-
+import {Image} from 'astro:assets';
+import zeitplan from '@assets/images/stundenplan_owo.png';
 ---
 
 <section class="scroll-mt-16 dark:bg-steel-700">
@@ -7,11 +8,9 @@
 	<div class="relative max-w-6xl mx-auto px-4 sm:px-6">
 		<div class="py-4 pt-8 sm:py-6 lg:py-8 lg:pt-12">
             <hgroup class="text-steel-600 dark:text-steel-100">
-            <h2
-				class="text-5xl md:text-5xl font-heading pb-6 bg-clip-text font-bold text-justify md:text-center"
-			>
+            <h1 class="text-5xl md:text-5xl font-heading pb-6 bg-clip-text font-bold text-justify md:text-center">
             Die Orientierungswoche (auch bekannt als OWO)
-			</h2>
+			</h1>
             </hgroup>
 			<div class="md:text-left">
                 <p class="text-xl dark:text-zinc-400 mb-4">
@@ -24,6 +23,16 @@
 					In der OWO im Wintersemester sind Bachelor- und Master-Erstis dabei während in dem Sommersemester nur Master-Erstis da sind und das ganze entsprechend auf einen Tag verkürzt ist.
                 </p>
             </div>
+			<h1 class="text-3xl font-heading pb-6 bg-clip-text font-bold text-justify md:text-center dark:text-steel-100">
+				Zeitplan
+			</h1>
+			<center>
+				<Image src={zeitplan}
+					alt="Zeitplan"
+					width="600"
+					class="object-scale-down"
+					 />
+			</center>
 		</div>
 	</div>
 </section>
