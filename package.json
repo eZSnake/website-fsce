@@ -69,5 +69,8 @@
   "dependencies": {
     "@iconify-json/devicon": "^1.1.46",
     "date-fns": "^3.6.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
